@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const request = require("request");
 const https = require("https");
+const { STATUS_CODES } = require("http");
 
 const app = express();
 
@@ -22,7 +23,7 @@ app.post("/", function(req, res){
             {
                 email_address: email,
                 status: "subscribed",
-                merged_fields: {
+                merge_fields: {
                     FNAME: firstName,
                     LNAME: lastName
                 }
@@ -40,8 +41,16 @@ app.post("/", function(req, res){
     }
 
    const request = https.request(url, options, function(response){
+       
+    if (response.statusCode === 200){
+        res.send("successfully subscribed");
+    } else {
+        res.send("There was an error , pls try again");
+    }
+
+
         response.on("data", function(data){
-            console.log(JSON.parse(data));
+            console.log("success");
         })
     })
     
