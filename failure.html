@@ -10,10 +10,14 @@
 </head>
 <body>
     
-    <div class="jumbotron jumbotron-fluid">
+    <div style="background-color: rgb(213, 75, 75); padding-bottom: 10px;" class="jumbotron jumbotron-fluid">
         <div class="container">
           <h1 class="display-4">Oops Something went wrong</h1>
           <p class="lead">It seems like we couldn't Sign you , Please try again</p>
+
+          <form action="/failure" method="POST">
+              <button class="btn btn-lg btn-primary" type="submit" name="button">Try Again</button>
+          </form>
         </div>
       </div>
 </body>
