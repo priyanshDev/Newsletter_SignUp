@@ -33,11 +33,11 @@ app.post("/", function(req, res){
 
     const jsonData = JSON.stringify(data);
 
-    const url = "https://us18.api.mailchimp.com/3.0/lists/8e860492c2";
+    const url = "https://us18.api.mailchimp.com/3.0/lists/8a860492c2";    // Put last part of API ID instead of us18 and after lists put your Audience ID from Mailchimp
 
     const options = {
         method: "POST", 
-        auth: "priyansh123:586a0c1970c093413177e1926dde0d24-us18"
+        auth: "Name123: Your Api key"           // put your API key here 
     }
 
    const request = https.request(url, options, function(response){
@@ -72,8 +72,3 @@ app.listen(process.env.PORT || 3000, function(){
 });
 
 
-// Api key
-
-// 586a0c1970c093413177e1926dde0d24-us18
-//Audience ID
-// 8e860492c2
